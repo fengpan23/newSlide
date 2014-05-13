@@ -4,7 +4,7 @@
   "dependencies": {
     "express": "3.x",
     "mongodb": "1.x",
-    "node-xml2js": "latest"
+    "xml2js": "*"
   },
   "scripts": {
        "start": "node start.js"
