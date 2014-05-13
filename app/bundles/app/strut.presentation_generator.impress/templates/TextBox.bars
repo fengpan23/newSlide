@@ -1,0 +1,8 @@
+{{#attributes}}
+{{> ComponentContainer}}
+<div class="antialias" style="{{#if new}}display:none{{/if}}; width:{{{width}}}px; height:{{{height}}}px; background:{{{background}}}; line-height:{{{lineSpacing}}};">
+{{{text}}}
+</div>
+</div>
+</div>
+{{/attributes}}

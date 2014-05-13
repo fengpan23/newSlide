@@ -1,0 +1,20 @@
+<button class="btn btn-plast act"><i class="icon-play icon-black"/><span class="chosen">
+{{#if chosen.shortname}}
+	{{chosen.shortname}}
+{{else}}
+	{{chosen.displayName}}
+{{/if}}
+</span></button>
+{{!--
+<button class="btn dropdown-toggle btn-success iconBtnsSplit" data-toggle="dropdown">
+  <span class="caret whiteCaret"></span>
+</button>
+<ul class="dropdown-menu" style="min-width: 110px; width: 115px">
+	{{#each generators}}
+    <li data-option="{{id}}"><a style="padding-left: 10px;">
+    		<span class="check" style="visibility: hidden;">&#10003;</span>
+    		{{displayName}}
+    </a></li>
+    {{/each}}
+</ul>
+--}}

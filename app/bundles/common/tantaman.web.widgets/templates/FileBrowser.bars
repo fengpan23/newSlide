@@ -1,0 +1,7 @@
+<div class="errors alert-error"></div>
+<input type="text" class="fileName"></input>
+<ul class="nav nav-pills nav-stacked">
+	{{#files}}
+	<li data-fileName="{{.}}"><a>{{.}} <button class="close pull-right">×</button></a></li>
+	{{/files}}
+</ul>
