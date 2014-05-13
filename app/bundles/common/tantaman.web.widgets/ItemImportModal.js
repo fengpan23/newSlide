@@ -75,18 +75,19 @@ function(Backbone, Imgup, Jcrop, CutImage) {
 			}
 		},
 		
-		_cutImage: function(e) {
+		_cutImage: function() {
 			console.log("cut Image begin");
-			if(!e.target.src || !this.cutImg)
+			if(!this.$img || !this.cutImg)
 				return;
 			
 			var self = this;
 
-		    $(e.target).Jcrop({
+		    this.$img.Jcrop({
 //		      onChange:   showCoords,
 		      onSelect:   showCoords,
 		      onRelease:  clearCoords,
-//		      minSize : [50, 50],
+		      setSelect: [0, 0, 360, 268],
+		      minSize : [50, 50],
 		      bgOpacity:   .4
 		    },function(){
 		    	self.jcrop_api = this;
@@ -240,6 +241,7 @@ function(Backbone, Imgup, Jcrop, CutImage) {
 		},
 		_itemLoaded: function() {
 			this.cutImg = true;
+			this._cutImage();
 			this.$el.find(".ok").removeClass("disabled");
 			return this.$el.find(".alert").addClass("dispNone");
 		},
@@ -273,6 +275,9 @@ function(Backbone, Imgup, Jcrop, CutImage) {
 //					return _this._itemLoaded();
 //				};
 //			}
+            if(this.options.tag === "img"){
+                this.$img = this.$el.find("img");
+            }
 			this.$input = this.$el.find("input[name='itemUrl']");
 			this.$progress = this.$el.find('.progress');
 			this.$progressBar = this.$progress.find('.bar');

@@ -12,8 +12,7 @@ var transpond = require('./server/api/transpond');
 
 var testAPI = require('./server/api/test');
 
-var app = express();
-
+var app = express(); 
 app.configure(function () {
 	app.set("jsonp callback", true);
     app.set('port', process.env.PORT || 5858);
@@ -21,7 +20,7 @@ app.configure(function () {
     app.use(express.bodyParser({uploadDir: "../upload/ppt", limit: '50mb'})), // parses request body and populates req.body Request Entity limit 5mb
     app.use(express.methodOverride()); // checks req.body for HTTP method overrides
     app.use(app.router); // perform route lookup based on url and HTTP method
-    app.use(express.static(path.join(__dirname, 'app'))); // root path folder
+    app.use(express.static(path.join(__dirname, 'dist'))); // root path folder
     app.use(express.errorHandler({ dumpExceptions:true, showStack:true })); // Show all errors
 });
 
