@@ -44,11 +44,11 @@ function(Menu, ComponentCommands, CmdListFactory, lang) {
 		},
 		
 		_adjustOpacity: function() {
-			var initOpacity = this.model.get('opacity') || 0;
+			var initOpacity = this.model.get('opacity') || 1;
 			var self = this;
 		    $( "#slider-range-min" ).slider({
 			      range: "min",
-			      value: initOpacity * 100,
+			      value: 100 - initOpacity * 100,
 			      min: 0,
 			      max: 100,
 			      slide: function(event, ui ) {

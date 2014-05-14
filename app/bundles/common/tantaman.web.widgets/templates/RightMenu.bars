@@ -13,7 +13,7 @@
 </div>
 <div class="adjustOpacity" style="display: none;">
 	<p>
-		<label for="amount">Opacity:</label>
+		<label for="amount">透明度:</label>
 		<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
 	</p> 
 	<div id="slider-range-min"></div>
