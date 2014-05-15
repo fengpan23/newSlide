@@ -35,16 +35,19 @@ function() {
 		},
 		
 		audition: function(e) {
-			var mId = $(e.currentTarget).removeClass('icon-play').addClass('icon-pause').attr('data-id');
-			
-			var _this = this;
-			this.getMusciInfo(mId, function(musicInfo) {
-				var songLink = musicInfo.data.songList[0].songLink;
-				console.log(songLink);
-//				$('body').append('<audio autoplay="autoplay" src="'+ musicInfo.data.songList[0].songLink +'"></audio>');
-				_this.$mlist.find('audio')[0].src = songLink;
-//				_this.$mlist.find('audio')[0].play();
-			});
+		    this.$mlist.find('.icon-pause').removeClass('icon-pause').addClass('icon-play');
+			var song = $(e.currentTarget).addClass('icon-pause').attr('data-song');
+			var singer = $(e.currentTarget).attr('data-singer');
+    		var src = "http://box.baidu.com/widget/flash/song.swf?name="+ song +"&artist="+ singer +"&autoPlay=true&loop=true";
+    		this.$mlist.find('iframe')[0].src = src;
+			// var _this = this;
+			// this.getMusciInfo(mId, function(musicInfo) {
+				// var songLink = musicInfo.data.songList[0].songLink;
+				// console.log(songLink);
+// //				$('body').append('<audio autoplay="autoplay" src="'+ musicInfo.data.songList[0].songLink +'"></audio>');
+				// _this.$mlist.find('ifrema')[0].src = songLink;
+// //				_this.$mlist.find('audio')[0].play();
+			// });
 		},
 		
 		download: function(e) {

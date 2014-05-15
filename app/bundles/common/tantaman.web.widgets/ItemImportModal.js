@@ -265,7 +265,7 @@ function(Backbone, Imgup, Jcrop, CutImage) {
 			this.item = this.$el.find(this.options.tag)[0];
 			
 			if (this.options.tag === "video") {
-				this.$el.find(".modal-body").prepend("<div class='alert alert-success'>支持 Ogg， MPEG4，WebM格式（http://vjs.zencdn.net/v/oceans.mp4）</div>");
+				this.$el.find(".modal-body").prepend('<div class="alert alert-success">支持 Ogg， MPEG4，WebM格式（http://vjs.zencdn.net/v/oceans.mp4）<button class="close" data-dismiss="alert">×</button></div>');
 			}
 //			if (!this.options.ignoreErrors ) {
 //				this.item.onerror = function() {
