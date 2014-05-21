@@ -355,7 +355,7 @@ define(["./ComponentView", "libs/etch",
 			 */
 			render: function() {
 				ComponentView.prototype.render.call(this);
-				this.$el.find("span[data-delta='scale']").hide()
+				this.$el.find("span[data-delta='scale']").hide();
 				this.$content = this.$el.find(".content");
 				this.$content.css({'height': '100%', 'width': '100%'});  
 				var self = this;

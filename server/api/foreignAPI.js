@@ -76,3 +76,21 @@ exports.findAllDeck = function(req, res) {
 		res.jsonp(result);
 	});
 };
+
+exports.rename = function(req, res){
+    var deckId = req.params.id;
+    var newName = req.params.name;
+    
+    deck.deckAPI.findById(deckId, function(result) {
+        console.log(result);
+        if(!result){
+            res.jsonp({message: 'not find by ' + deckId});
+            return;
+        }
+        result.filename = newName;
+        
+        deck.deckAPI.updateDeck(deckId, result, function(data){
+            res.jsonp(data);
+        });
+    });
+};

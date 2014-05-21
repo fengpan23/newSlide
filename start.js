@@ -36,6 +36,7 @@ app.get('/all', internalAPI.findAllDeck);
 app.get('/api/delete/:id', foreignAPI.deleteDeck);
 app.get('/api/search/:searchTag/:skip/:limit', foreignAPI.findByTag);
 app.put('/api/adddeck', foreignAPI.addDeck);
+app.get('/api/rename/:id/:name', foreignAPI.rename);
 //app.get('/api/all', foreignAPI.findAllDeck);
 //app.get('/api/find/:filename', foreignAPI.findByName);
 

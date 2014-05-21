@@ -34,24 +34,23 @@ define(["./Menu",
 		},
 		
 		_adjustOpacity: function() {
-			var initOpacity = this.model.get('opacity') || 1;
+			var initOpacity = (this.model.get('opacity') >= 0) ? this.model.get('opacity') : 1;
 			 console.log("init value: " + initOpacity);
 			var self = this;
 		    $( "#slider-range-min" ).slider({
 			      range: "min",
-			      value: initOpacity * 100,
-			      min: 1,
+			      value: 100 - initOpacity * 100,
+			      min: 0,
 			      max: 100,
 			      slide: function(event, ui ) {
 			    	  //opacity: 0.4
-			    	  console.log("slide value: " + ui.value);
+			    	  // console.log("slide value: " + ui.value);
 			    	  $( "#amount" ).val(ui.value + "%");
-			    	  self.model.set('opacity', ui.value/100);
+			    	  self.model.set('opacity', 1 - ui.value/100);
 			      },
 			      change: function(event, ui) {
-			    	  console.log("change value: " + ui.value);
-			    	  
-			    	  self.model.set('opacity', ui.value/100);
+			    	  // console.log("change value: " + ui.value);
+			    	  self.model.set('opacity', 1 - ui.value/100);
 			    	  var cmd = ComponentCommands.Opacity(initOpacity, self.model);
 			    	  undoHistory.push(cmd);
 			      }
@@ -106,7 +105,10 @@ define(["./Menu",
           			$('#rightColorPicker').show();
 				},
           		move: function(color) {
-          			self.model.set('background', color.toHexString());
+          		    var rgb = color.toRgb();
+          		    var rgba = "rgba(" + rgb.r + "," + rgb.g + "," + rgb.b + "," + ((self.model.get('opacity') >= 0) ? self.model.get('opacity') : 1) + ")";
+          		    console.log(rgba);
+          			self.model.set('background', rgba);
           			var cmd = ComponentCommands.Background(initialBackground, self.model);
         			undoHistory.push(cmd);
           		}

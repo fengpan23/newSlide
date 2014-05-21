@@ -94,7 +94,7 @@ define(["./ComponentView", "libs/etch",
 				if(bg.indexOf('#') === 0){
 					rgb = this._hexToRgb(bg);
 				}
-				var rgba = "rgba(" + rgb.r + "," + rgb.g + "," + rgb.b + "," + (this.model.get('opacity') || 1) + ")";
+				var rgba = "rgba(" + rgb.r + "," + rgb.g + "," + rgb.b + "," + this.model.get('opacity') + ")";
 				this.$content.css("background", rgba);
 				this.model.set('background', rgba);
 			},
@@ -421,7 +421,7 @@ define(["./ComponentView", "libs/etch",
 					self._handlePaste(this, e);
 				});
 				this.$textEl.html(this.model.get("text"));
-				this.$content.css('background',this.model.get("background"));
+				this.$content.css('background', this.model.get("background"));
 				this.$content.css("line-height", this.model.get('lineSpacing') || 'normal');
 				$('.rightLabel', this.$content.parent().parent()).show();
 				this.$el.css({
