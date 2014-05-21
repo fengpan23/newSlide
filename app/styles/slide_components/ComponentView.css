@@ -36,6 +36,9 @@
 	word-wrap:break-word;
 	/*white-space: pre-wrap;*/
 }
+.component .content div{
+	min-height:20px;
+}
 
 .component .content-scale:not(.svg) {
 	display: inline-block;

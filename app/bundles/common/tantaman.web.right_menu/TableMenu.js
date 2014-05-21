@@ -92,10 +92,11 @@ var undoHistory = CmdListFactory.managedInstance('editor');
 		
 		//TODO when click the adjust div how to get the correct current targe
 		_deleteL: function(e) {
+		    var table = this.model.get('table');
 			var $table = $(table);
 			var indexL = this.$currenttarge.index();
 			$table.find('tr').each(function() {
-				$(this).children('td').eq(indexL).remove();
+				$(this).children('td').eq(indexL).html('').remove();
 				return;
 			});
 			this.model.set('table', $table[0].outerHTML);
@@ -104,14 +105,15 @@ var undoHistory = CmdListFactory.managedInstance('editor');
 		},
 		
 		_deleteR: function(e) {
-			var $table = $(table)
+		    var table = this.model.get('table');
+			var $table = $(table);
 			var indexR = this.$currenttarge.parent().index();
 			$table[0].deleteRow(indexR);
 //			var $table = $(this.model.get('table'))
 //			var indexR = this.$currenttarge.parent().index();
 //			$table.find('tr').each(function() {
 //				if($(this).index() === indexR){
-//					$(this).remove()
+//					$(this)..html('').remove()
 //				};
 //			});
 			this.model.set('table', $table[0].outerHTML);
@@ -183,10 +185,10 @@ var undoHistory = CmdListFactory.managedInstance('editor');
           			var line = self.$currenttarge.index() || 0;
 //          			console.log(self.$currenttarge.parent().index()); //row
 //          			console.log(self.$currenttarge.index()); //line 
-          			var $table = $(self.model.get('table'));
+          			var $table = $(table);
           			
           			if(self.title === lang.row_color){
-          				$table.find('tr:eq('+ row +')').css('background', color.toHexString());
+          				$table.find('tr:eq('+ row +')').css('background', color.toHexString()).children().css('background', '');
           			}else if(self.title === lang.line_color){
           				$table.find('tr').find('td:eq('+ line +')').each(function() {
 							$(this).css('background', color.toHexString());
@@ -194,7 +196,7 @@ var undoHistory = CmdListFactory.managedInstance('editor');
           			}else if(self.title === lang.cell_color){
           				$table.find('tr:eq('+ row +')').find('td:eq('+ line +')').css('background', color.toHexString());
           			}else if(self.title === lang.table_color){
-          				$table.css('background', color.toHexString());
+          				$table.css('background', color.toHexString()).find("*").css('background', '');
           			}else{
           				alert('error');
           				return;

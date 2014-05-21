@@ -68,11 +68,10 @@ define(["./Menu",
 		
 		_setLineSpacing: function() {
 			var self = this;
-			var initLineSpacing = this.model.get('lineSpacing')
+			var initLineSpacing = this.model.get('lineSpacing');
 			$('.lineSpacing').show();
 			$('.lineSpacing').find('a').each(function() {
 				$(this).off('click').on('click', function(e) {
-					log(parseFloat(e.currentTarget.innerHTML));
 					self.model.set('lineSpacing', e.currentTarget.innerHTML === 'normal' ? 'normal' : parseFloat(e.currentTarget.innerHTML));
 					var cmd = ComponentCommands.LineSpaceing(initLineSpacing, self.model);
 					undoHistory.push(cmd);

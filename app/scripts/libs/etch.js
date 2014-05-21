@@ -110,7 +110,7 @@ define(['libs/backbone'], function(Backbone) {
     	  size = size.replace('px', '');
       }
       
-      this.$fontSizeReadout.text(size);
+      this.$fontSizeReadout.html(size);
       this.$fontFamilyReadout.html(face);
       this.$colorChooser.spectrum('set', color);
     },
@@ -128,7 +128,7 @@ define(['libs/backbone'], function(Backbone) {
     },
 
     _fontSizeChanged: function(model, value) {
-      this.$fontSizeReadout.text(value);
+      this.$fontSizeReadout.html(value);
     },
 
     changeButtons: function() {
@@ -189,7 +189,7 @@ define(['libs/backbone'], function(Backbone) {
         $(".sp-container").mousedown(prevent);
         $colorChooser.mousedown(prevent);
 
-        $colorChooser.find("div").css("backgroundColor", '#' + hex)
+        $colorChooser.find("div").css("backgroundColor", '#' + hex);
       }
 
       var $toggle = this.$el.find('.dropdown-toggle');
@@ -254,8 +254,8 @@ define(['libs/backbone'], function(Backbone) {
     	  $(currentText.focusNode.parentNode).css("font-size",value);
       }else{
     	  document.execCommand('fontSize', false, value);
-    	  var $changeStyleNode = $(currentText.focusNode.parentNode).parents(".content").find("font, td");
-    	  $changeStyleNode.each(function() {
+    	  var $changeStyleNode = $(currentText.focusNode.parentNode).parents(".content");
+    	  $changeStyleNode.find("*").each(function() {
 				if($(this).attr('size')){
 					$(this).css("font-size",value);
 					$(this).removeAttr("size");
@@ -494,7 +494,7 @@ define(['libs/backbone'], function(Backbone) {
             $editable.find('img').unbind('mouseenter');
 
             // remove any latent image tool model references
-            $(etch.config.selector+' img').data('editableImageModel', false)
+            $(etch.config.selector+' img').data('editableImageModel', false);
           }
                     
           // once the editor is removed, remove the body binding for it
@@ -555,7 +555,7 @@ define(['libs/backbone'], function(Backbone) {
     // and returns that el when it is found
     var $el = $(this);
     return $el.is(etch.config.selector) ? $el : $el.closest(etch.config.selector);
-  }
+  };
     
   return etch;
 });

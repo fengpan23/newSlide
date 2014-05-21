@@ -71,6 +71,16 @@ define(["./ComponentView", "libs/etch",
 			 * @private
 			 */
 			_rightMenu: function(e) {
+			    // text = this.$content.html();
+                // this.editing = false;
+                // if (text === "" || $(text).find('td').length < 1) {
+                    // return this.remove();
+                // } else {
+                    // var cmd = ComponentCommands.Text(this._initialText, this.model);
+                    // undoHistory.push(cmd);
+// 
+                    // this.model.set("table", text);
+			    this.editCompleted();
 				var menu = new RightMenu({model: this.model});
 				if(menu){
 					menu.render($(e.target));
