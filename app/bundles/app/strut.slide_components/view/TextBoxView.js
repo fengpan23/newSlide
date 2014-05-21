@@ -189,9 +189,6 @@ define(["./ComponentView", "libs/etch",
 			 * @param {boolean} disposeModel Whether or not to dispose component's model as well.
 			 */
 			remove: function(disposeModel) {
-			    if (this.model.slide) {
-                    this.model.slide.remove([this.model]);
-                }
 				ComponentView.prototype.remove.apply(this, arguments);
 				// TODO This can be uncommented once modal windows start blocking all slide key events.
 				// $(document).unbind("keydown", this.keydown);
@@ -303,7 +300,7 @@ define(["./ComponentView", "libs/etch",
 			    // console.log(text.replace(/<[^>]+>/g,""));
 				this.editing = false;
 				if (text.replace(/<[^>]+>/g,"") === "") {
-					return this.remove();
+					// return this.remove();
 				} else {
 					var cmd = ComponentCommands.Text(this._initialText, this.model);
 					undoHistory.push(cmd);
