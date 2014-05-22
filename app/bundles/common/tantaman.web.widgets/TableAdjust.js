@@ -79,6 +79,11 @@ function(Backbone, DeltaDragControl, ComponentCommands, CmdListFactory) {
 		 */
 		splity : function(e, deltas) {
 			var currentWidth = this._initialWidth + deltas.dx;
+			
+			//min-width
+            if(currentWidth < 30){
+                return;
+            }
 			if(this.index !== 0){
 				for ( var i = 0; i < this.table.rows.length - 1; i++) {
 					if (!this.table.rows[i].cells[this.index] || this.index < 0 || this.table.rows[i].cells[this.index].colSpan > 1) {
@@ -116,7 +121,7 @@ function(Backbone, DeltaDragControl, ComponentCommands, CmdListFactory) {
 		 */
 		splitxStart : function(e) {
 			this.drag = true;
-			this._initTable = this.model.get('table')
+			this._initTable = this.model.get('table');
 			this._tableHeight = this.model.get('height') || this.table.clientHeight;
 			var currentId = parseInt(e.target.id.split("_")[1]);
 			var divs = this.$el.find('.splitx');
@@ -143,6 +148,10 @@ function(Backbone, DeltaDragControl, ComponentCommands, CmdListFactory) {
 		 */
 		splitx : function(e, deltas) {
 			var currentHeight = this._initialHeight + deltas.dy;
+			//min-height
+            if(currentHeight < 25){
+                return;
+            }
 			if(this.index !== 0){
 				for ( var i = 0; i < this.table.rows[this.index - 1].cells.length - 1; i++) {
 					if (!this.table.rows[this.index - 1] || this.index < 0 || this.table.rows[this.index - 1].cells[i].rowSpan > 1) {

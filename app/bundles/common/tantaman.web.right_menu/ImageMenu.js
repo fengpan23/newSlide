@@ -44,7 +44,7 @@ function(Menu, ComponentCommands, CmdListFactory, lang) {
 		},
 		
 		_adjustOpacity: function() {
-			var initOpacity = this.model.get('opacity') || 1;
+			var initOpacity = (this.model.get('opacity') >= 0) ? this.model.get('opacity') : 1;
 			var self = this;
 		    $( "#slider-range-min" ).slider({
 			      range: "min",

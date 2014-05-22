@@ -94,7 +94,7 @@ define(["./ComponentView", "libs/etch",
 				if(bg.indexOf('#') === 0){
 					rgb = this._hexToRgb(bg);
 				}
-				var rgba = "rgba(" + rgb.r + "," + rgb.g + "," + rgb.b + "," + (this.model.get('opacity') || 1) + ")";
+				var rgba = "rgba(" + rgb.r + "," + rgb.g + "," + rgb.b + "," + this.model.get('opacity') + ")";
 				this.$content.css("background", rgba);
 				this.model.set('background', rgba);
 			},
@@ -109,6 +109,7 @@ define(["./ComponentView", "libs/etch",
 			},
 			
 			_lineSpacingChanged: function() {
+			    this.$content.find('li').css("line-height", this.model.get('lineSpacing') || 'normal');
 				this.$content.css("line-height", this.model.get('lineSpacing') || 'normal');
 			},
 			
@@ -287,11 +288,19 @@ define(["./ComponentView", "libs/etch",
 			 * Finish editing and close the editor.
 			 */
 			editCompleted: function() {
+				//remove the empty content of node
+                this.$textEl.find('*').each(function(){
+                    if($(this).html() === ""){
+                      return $(this).remove();
+                    }
+                });				
+				
 				var text;
 				text = this.$textEl.html();
+			    // console.log(text.replace(/<[^>]+>/g,""));
 				this.editing = false;
-				if (text === "") {
-					return this.remove();
+				if (text.replace(/<[^>]+>/g,"") === "") {
+					// return this.remove();
 				} else {
 					var cmd = ComponentCommands.Text(this._initialText, this.model);
 					undoHistory.push(cmd);
@@ -421,7 +430,7 @@ define(["./ComponentView", "libs/etch",
 					self._handlePaste(this, e);
 				});
 				this.$textEl.html(this.model.get("text"));
-				this.$content.css('background',this.model.get("background"));
+				this.$content.css('background', this.model.get("background"));
 				this.$content.css("line-height", this.model.get('lineSpacing') || 'normal');
 				$('.rightLabel', this.$content.parent().parent()).show();
 				this.$el.css({

@@ -1,13 +1,21 @@
 define(["./ComponentView", "tantaman/web/widgets/VideoControl", './Mixers'],
 	function(ComponentView, VideoControl, Mixers) {
-		var Html5, Youtube, result, types;
-
 		/**
 		 * @class audioView
 		 * @augments ComponentView
 		 */
 		return ComponentView.extend({
 			className: "component audioView",
+			
+			events: function() {
+                var myEvents, parentEvents;
+                parentEvents = ComponentView.prototype.events();
+                myEvents = {
+                    "mouseenter": "getFocus",
+                    "click": "audioPlay"
+                };
+                return _.extend(parentEvents, myEvents);
+            },
 
 			/**
 			 * Initialize audioView component view.
@@ -15,49 +23,32 @@ define(["./ComponentView", "tantaman/web/widgets/VideoControl", './Mixers'],
 			initialize: function() {
 				ComponentView.prototype.initialize.apply(this, arguments);
 			},
-
+			
+			getFocus: function(){
+			    this.model.set("selected", true, { multiselect: true });
+			},
+            
+            audioPlay: function(){
+                return true;
+            },
 			/**
 			 * Render element based on component model.
 			 *
 			 * @returns {*}
 			 */
 			render: function() {
-				var $img,
-				_this = this;
 				ComponentView.prototype.render.call(this);
 	
-				var url = this.model.getURL();
-				if (url) {
-					$img = $('<img src="' + url + '"></img>');
-				} else {
-					$img = $("<img></img>");
-				}
-				
-				$img.load(function() {
-					return _this._finishRender($(this));
-				});
-				$img.error(function() {
-					return _this.remove();
-				});
-				
-				this.$img = $img;
+				var $frame, scale;
+                $frame = $('<iframe src="'+ this.model.getURL() +'" width="50px" height="50px" frameborder="0" scrolling="auto">');
+                var scale = this.model.get('scale');
+                this.$el.css({
+                    width: 60,
+                    height: 60
+                });
+                this.$el.find(".content").append($frame);
+                this.$el.find(".label").hide();
 				return this.$el;
-			},
-			
-			/**
-			 * Do the actual rendering once video is loaded.
-			 *
-			 * @param {jQuery} $img
-			 * @returns {*}
-			 * @private
-			 */
-			_finishRender: function($video) {
-				var height, naturalHeight, naturalWidth, scale, width;
-				$img.bind("dragstart", function(e) {
-					e.preventDefault();
-					return false;
-				});
-				this.$content.append($img);
 			}
 		});
 	});

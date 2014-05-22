@@ -71,6 +71,16 @@ define(["./ComponentView", "libs/etch",
 			 * @private
 			 */
 			_rightMenu: function(e) {
+			    // text = this.$content.html();
+                // this.editing = false;
+                // if (text === "" || $(text).find('td').length < 1) {
+                    // return this.remove();
+                // } else {
+                    // var cmd = ComponentCommands.Text(this._initialText, this.model);
+                    // undoHistory.push(cmd);
+// 
+                    // this.model.set("table", text);
+			    this.editCompleted();
 				var menu = new RightMenu({model: this.model});
 				if(menu){
 					menu.render($(e.target));
@@ -355,7 +365,7 @@ define(["./ComponentView", "libs/etch",
 			 */
 			render: function() {
 				ComponentView.prototype.render.call(this);
-				this.$el.find("span[data-delta='scale']").hide()
+				this.$el.find("span[data-delta='scale']").hide();
 				this.$content = this.$el.find(".content");
 				this.$content.css({'height': '100%', 'width': '100%'});  
 				var self = this;

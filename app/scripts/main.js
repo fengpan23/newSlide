@@ -61,7 +61,6 @@ require.config({
 		'tantaman/web/undo_support' : '../bundles/common/tantaman.web.undo_support',
 		'tantaman/web/interactions' : '../bundles/common/tantaman.web.interactions',
 		'tantaman/web/widgets' : '../bundles/common/tantaman.web.widgets',
-		'tantaman/web/widgets/media_plug' : '../bundles/common/tantaman.web.widgets/media_plug',
 		'tantaman/web/css_manip' : '../bundles/common/tantaman.web.css_manip',
 		'tantaman/web/right_menu' : '../bundles/common/tantaman.web.right_menu'
 		// end build - rmap
