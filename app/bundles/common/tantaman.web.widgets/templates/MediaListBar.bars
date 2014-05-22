@@ -1,0 +1,4 @@
+{{#.}}
+	<img src="{{tbUrl}}" width="115px" height="115px" tag="{{title}}"/>
+{{/.}}
+

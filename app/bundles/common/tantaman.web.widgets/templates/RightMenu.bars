@@ -1,0 +1,20 @@
+<div id="rightMenu">
+</div>
+<div id="rightColorPicker" style="display: none;">
+	<input id="menuColorPicker" style="display: none;">
+</div>
+<div class="lineSpacing" style="display: none;">
+	<ul class="rightmenu">
+		<li><a>1.0</a></li>
+		<li><a>1.5</a></li>
+		<li><a>2.0</a></li>
+		<li><a>normal</a></li>
+	</ul>
+</div>
+<div class="adjustOpacity" style="display: none;">
+	<p>
+		<label for="amount">透明度:</label>
+		<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
+	</p> 
+	<div id="slider-range-min"></div>
+</div>

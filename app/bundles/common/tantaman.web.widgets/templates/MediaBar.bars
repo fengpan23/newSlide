@@ -1,0 +1,14 @@
+<div class="search_header">
+	<button class="close">×</button>
+	<h4>{{title}}</h4>
+	<input type="file" class="imgInput" accept="image/*"></input>
+</div>
+<div class="search_center">
+	<h4>从网络中搜索{{name}}</h4>
+	<p>
+		<input type="text" class="box" title="在此输入搜索内容。">
+		<input type="submit" value="Go" class="button" title="搜索！">
+	</p>
+	<div class="imageLoding"></div>
+	<div class="search_list"></div>
+</div>

@@ -1,0 +1,54 @@
+@hoverColor: #62c462;
+@textColor: #ffffff;
+@leftWidth: 25%;
+
+.header_container{
+	.modeBtn{
+		position: relative;
+		float: left;
+		height: 100%;
+		width: 50px;
+		color: @textColor;
+		text-align: center;
+		&:hover {
+			background-color: @hoverColor;
+		}
+		
+	}
+	.header_left{
+		position: absolute;
+		z-index: 1;
+		height: 100%;
+		margin-left: 0;
+		width: @leftWidth;
+		.logo-group{
+			.logo_dropdown{
+				position: absolute;
+				left: 0px;
+				height: 100%;
+				width: 40%;
+				min-width: 150px;
+				background: url(img/logo-32-light.png) no-repeat center center;
+				&:hover {
+					background-color: @hoverColor;
+				}
+			}
+		}
+		.actBtn{
+			position: absolute;
+			left: 160px;
+		}
+	}
+	.header_center{
+		position: absolute;
+		z-index: 1;
+		left: @leftWidth;
+		height: 100%;
+		width: 50%;
+		.mode_group{
+			margin-left: 150px;
+			height: 100%;
+			width: 100%;
+		}
+	}
+}

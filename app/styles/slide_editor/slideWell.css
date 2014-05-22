@@ -1,0 +1,39 @@
+.slideWell {
+	width: 100%;
+	float: left;
+    margin-bottom: 35px;
+	border-right: 1px solid black;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.slideWell .slideSnapshot, .slideWell .slidePlaceholder {
+	width: 120px;
+	height: 90px;
+	margin: 0 auto;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+.slideWell .slideSnapshot .badge:before {
+	counter-increment: slideSnapshot;
+	content: counter(slideSnapshot);
+}
+
+.slideWell .ui-sortable-helper {
+	left: 13px;
+}
+
+.center_body .slideWellSwitch{
+	position:absolute;
+	top:50%;
+    left:0px;
+	z-index: 1000;
+}
+body {
+	counter-reset: slideSnapshot;
+}

@@ -1,0 +1,136 @@
+@headerHeight: 40px;
+@left_bodyWidth: 155px;
+@footer_container: 35px;
+@mainColor: #4b4b4b;
+
+#modals{
+	display:none;
+}
+body{
+	margin:0px;
+	overflow:hidden;
+}
+.dispNone{
+	display:none;
+}
+.hidden_container{
+	display:none;
+}
+.header_container{
+	position:fixed;
+	left: 0px;
+	top: 0px;
+	height: @headerHeight;
+	width: 100%;
+	z-index: 1000;
+	background-color: @mainColor;
+}
+.body_container{
+	right: 0px;
+	top: @headerHeight;
+	background-color: @mainColor;
+}
+.body_container .top_body{
+	display: none;
+	left: @left_bodyWidth;
+	width: 100%;
+	height: 25px;
+	z-index: 1000;
+	background-color: @mainColor * 2;
+}
+.body_container .left_body{
+	position:fixed;
+	top: @headerHeight;
+	left: 0px;
+	bottom: @footer_container;
+	z-index: 2;
+	overflow-x: hidden;
+	width: @left_bodyWidth;
+	background-color: @mainColor*2;
+}
+.body_container .center_body{
+	position: absolute;
+	top: @headerHeight;
+	left: @left_bodyWidth;
+	right: 0px;
+	bottom: @footer_container;
+	background-color: @mainColor*3;
+}
+.body_container .right_body{
+	display: none;
+	overflow: hidden;
+	position:absolute;
+	top: @headerHeight;
+	right: 0px;
+	bottom: @footer_container;
+	width: 250px;
+	background-color: @mainColor*2;
+	.mediaBar{
+		margin: 5px;
+		.search_center{
+			.box{
+				width: 70%;
+			}
+			.button{
+				margin-bottom: 10px;
+			}
+			.search_list{
+				position: absolute;
+				top: 150px;
+				bottom: 0px;
+				overflow-y: auto;
+			}
+			.imageLoding{
+				display: none;
+				position: absolute;
+				top: 150px;
+				right: 0px;
+				height: 20px;
+				width: 100%;
+				z-index: 1000;
+				background-color: @mainColor * 4.23;
+				background-image: url(img/loading.gif);
+				background-size: 20px 20px;
+				background-position: center;
+				background-repeat: no-repeat;
+				filter: alpha(Opacity=70);
+				-moz-opacity: 0.7;
+				opacity: 0.7;
+			}
+		}
+	}
+}
+.body_container .bottom_body{
+	display: none;
+	position:relative;
+	bottom: @footer_container;
+	width: 100%;
+	height: 35%;
+	background-color: #aa0044;
+}
+.footer_container{
+	position:fixed;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	z-index: 1000;
+	height: @footer_container;
+	background-color: @mainColor;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0,0,0,0.1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: @mainColor;
+}

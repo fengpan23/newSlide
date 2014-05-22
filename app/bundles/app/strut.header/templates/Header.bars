@@ -1,0 +1,43 @@
+{{!--
+<div class="navbar navbar-inverse span12">
+	
+	<div class="navbar-inner">
+		
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+		
+		<ul class="nav">
+			<li class="logo-holder">
+			</li>
+			<li class="divider-vertical">
+			</li>
+		</ul>
+		<ul class="nav">
+			<li class="mode-buttons">
+			</li>
+			<li class="divider-vertical">
+			</li>
+		</ul>
+		<ul class="nav theme-buttons">
+		</ul>
+		<ul class="nav pull-right">
+			<li class="create-comp-buttons">
+				<div class="btn-group iconBtns">
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+</div>
+--}}
+<div class="header_left">
+</div>
+<div class="header_center">
+	<div class="mode_group"></div>
+</div>
+<div class="header_right">
+
+</div>
