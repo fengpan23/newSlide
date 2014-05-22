@@ -75,7 +75,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"btn-group\">\n	<button class=\"btn btn-small btn-inverse dropdown-toggle\" data-toggle=\"dropdown\" title=\"Choose the font size\"><span class=\"text fontSizeReadout\">72</span>\n		<span class=\"caret\"></span>\n	</button>\n	<ul class=\"dropdown-menu menuBarOption\" data-option=\"fontSize\">\n		<li>\n                  <a href=\"#\" data-value=\"144\">144</a>\n                  <a href=\"#\" data-value=\"96\">96</a>\n                  <a href=\"#\" data-value=\"72\">72</a>\n			<a href=\"#\" data-value=\"64\">64</a>\n                  <a href=\"#\" data-value=\"48\">48</a>\n                  <a href=\"#\" data-value=\"36\">36</a>\n                  <a href=\"#\" data-value=\"24\">24</a>\n                  <a href=\"#\" data-value=\"16\">16</a>\n                  <a href=\"#\" data-value=\"12\">12</a>\n                  <a href=\"#\" data-value=\"8\">8</a>\n		</li>\n     	</ul>\n</div>";
+  return "<div class=\"btn-group\">\n	<button class=\"btn btn-small btn-inverse dropdown-toggle\" data-toggle=\"dropdown\" title=\"Choose the font size\">\n		<span class=\"text fontSizeReadout\">72</span>\n		<span class=\"caret\"></span>\n	</button>\n	<ul class=\"dropdown-menu menuBarOption\" data-option=\"fontSize\">\n		<li>\n			<a href=\"#\" data-value=\"144\">144</a>\n			<a href=\"#\" data-value=\"96\">96</a>\n			<a href=\"#\" data-value=\"72\">72</a>\n			<a href=\"#\" data-value=\"64\">64</a>\n			<a href=\"#\" data-value=\"48\">48</a>\n			<a href=\"#\" data-value=\"36\">36</a>\n			<a href=\"#\" data-value=\"24\">24</a>\n			<a href=\"#\" data-value=\"16\">16</a>\n			<a href=\"#\" data-value=\"12\">12</a>\n		</li>\n     </ul>\n</div>";
   });
 
 this["JST"]["strut.footer/Footer"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -169,7 +169,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<a class=\"dropdown-toggle logo_dropdown\" data-toggle=\"dropdown\">\n</a>\n<ul class=\"dropdown-menu\"></ul>";
+  return "<a class=\"dropdown-toggle logo_dropdown\" data-toggle=\"dropdown\">\n</a>\n<ul class=\"dropdown-menu\"></ul>\n";
   });
 
 this["JST"]["strut.presentation_generator.bespoke/BespokeTemplate"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -1980,7 +1980,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n		<li style=\"list-style-type:none; height: 30px;\">\r\n			<input name=\"lmusic\" type=\"radio\" value=\"\" />\r\n			"
+  buffer += "\r\n		<li style=\"list-style-type:none; height: 30px;\">\r\n			"
     + "\r\n			";
   if (stack1 = helpers.song) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.song; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
@@ -1989,9 +1989,13 @@ function program1(depth0,data) {
   if (stack1 = helpers.singer) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.singer; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\r\n			<span class=\"pull-right\" style=\"margin-right: 50px;\">\r\n				<i class=\"icon-play icon-black\" data-id=\"";
-  if (stack1 = helpers.song_id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.song_id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+    + "\r\n			<span class=\"pull-right\" style=\"margin-right: 50px;\">\r\n				<i class=\"icon-play icon-black\" data-song=\"";
+  if (stack1 = helpers.song) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.song; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" data-singer=\"";
+  if (stack1 = helpers.singer) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.singer; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
     + "\"></i>&nbsp;&nbsp;&nbsp;&nbsp;\r\n				<i class=\"icon-download icon-black\" data-id=\"";
   if (stack1 = helpers.song_id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
@@ -2004,7 +2008,7 @@ function program1(depth0,data) {
   buffer += "<ul>\r\n	";
   stack2 = ((stack1 = (typeof depth0 === functionType ? depth0.apply(depth0) : depth0)),blockHelperMissing.call(depth0, stack1, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data}));
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\r\n</ul>\r\n<audio src=\"\" autoplay=\"autoplay\">you browser not support</audio>\r\n\r\n";
+  buffer += "\r\n</ul>\r\n<iframe src=\"\" width=\"500\" height=\"75\" frameborder=\"0\" scrolling=\"auto\" style=\"display:none\">\r\n\r\n";
   return buffer;
   });
 
